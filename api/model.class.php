@@ -76,6 +76,7 @@ class Model extends DatabaseConn
         }
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
+        // $statement->bindParam(':lim', $limit, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
