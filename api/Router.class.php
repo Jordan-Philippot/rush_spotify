@@ -9,7 +9,9 @@ class Router
             case '/home':
                 echo "Home";
                 break;
-
+            case '/albums':
+                $controller->getAlbums();
+                break;
             default:
                 $controller->notFound();
                 break;
