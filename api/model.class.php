@@ -35,11 +35,45 @@ class Model extends DatabaseConn
         $statement->execute();
         return $statement->fetchAll();
     }
-    public function getArtist(string $name)
+    public function getAlbumsByGenre(string $genreId)
     {
-        $sql = "SELECT *, albums.name album_name, albums.id album_id from artists
-        INNER join albums on artists.id = albums.artist_id
-        where artists.name like '%:name%'";
+        $sql = "SELECT *
+        FROM albums
+        LEFT join genres_albums g on g.album_id = albums.id
+        WHERE genre_id = :genre_id";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':genre_id', $genreId);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
+    public function getAlbumsByArtist(string $artistId)
+    {
+        $sql = "SELECT *
+        FROM albums
+        where artist_id = :artist_id";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':artist_id', $artistId);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    public function getTracksByAlbum(string $albumId)
+    {
+        $sql = "SELECT *
+        FROM tracks
+        WHERE album_id = :album_id";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':album_id', $albumId);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+    public function getArtists(string $name, $limit = null)
+    {
+        $sql = "SELECT * from artists
+        where artists.name like concat('%', :name, '%')";
+        if ($limit !== null) {
+            $sql .= " limit :lim"; // If we only want to get a certain amount of artists
+        }
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
         $statement->execute();
