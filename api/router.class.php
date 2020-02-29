@@ -4,13 +4,14 @@ class Router
 {
     public function route($uri)
     {
+        $controller = new Controller;
         switch ($uri) {
-            case '404':
-                echo "404";
+            case '/home':
+                echo "Home";
                 break;
 
             default:
-                echo "HOME";
+                $controller->notFound();
                 break;
         }
     }
