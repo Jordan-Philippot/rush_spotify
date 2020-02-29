@@ -8,23 +8,30 @@ class Model extends DatabaseConn
         $this->db = $this->connect();
     }
     //All our requests to the database
-    public function getAllAlbums()
+    public function getAllAlbums($limit = null)
     {
         $sql = "SELECT *, albums.name album_name
-        FROM albums
-        left join tracks on albums.id = tracks.album_id";
+        FROM albums";
+        if ($limit !== null) {
+            $sql .= " limit :lim"; // If we only want to get a certain amount of albums
+        }
         $statement = $this->db->prepare($sql);
+        $statement->bindParam(":lim", $limit, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
-    public function getAlbum(string $name)
+    public function getAlbum(string $name, $limit = null)
     {
-        $sql = "SELECT *, albums.name album_name
+        $sql = "SELECT *, albums.name album_name,
         FROM albums
-        left join tracks on albums.id = tracks.album_id
+        -- left join tracks on albums.id = tracks.album_id
         where albums.name like '%:name%'";
+        if ($limit !== null) {
+            $sql .= " limit :lim"; // If we only want to get a certain amount of albums
+        }
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
+        $statement->bindParam(':lim', $limit, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetchAll();
     }
