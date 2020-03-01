@@ -18,8 +18,13 @@ class Router
             case '/artists':
                 $controller->getArtists("a");
                 break;
+<<<<<<< HEAD
             case '/full':
                 $controller->getFull(15);
+=======
+            case '/genres':
+                $controller->getGenres("");
+>>>>>>> mattbranch
                 break;
             default:
                 $controller->notFound();
