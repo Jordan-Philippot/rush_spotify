@@ -3,7 +3,6 @@ import Album from "./Albums";
 
 function Home() {
   const [albums, setalbums] = useState(null);
-
   useEffect(() => {
     fetch("http://localhost:8080/albums")
       .then(response => response.json())
