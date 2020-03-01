@@ -9,11 +9,11 @@ function Artists() {
             .then(json => setartists(json))
     }, [])
     return (
-        <div className="container-fluid ">
+        <div className="container-fluid">
             <div className="row justify-content-center artist-container">
                 {artists === null
                     ? "Chargement..."
-                    : artists.data.map(artist => <BannerArtists artist={artists} />)}
+                    : artists.data.map(ar => <BannerArtists artist={ar} />)}
             </div>
         </div>
     );

@@ -35,7 +35,7 @@ body {
   margin: -20px 10px -5px 0px;
 }
 
-.album-container{
+.album-container, .artist-container{
   flex-wrap: nowrap;
   overflow-x: scroll;
   margin-top: 100px;
@@ -56,7 +56,6 @@ body {
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
-
 .album-button{
   background-color: #00d167;
   border-radius: 25px;
@@ -72,4 +71,22 @@ body {
 }
 .img-container{
   margin-top: 1%;
+}
+
+/* ARTIST */ 
+.img-artist{
+border-radius: 50%;
+width: 200px;
+height: 200px;
+}
+.artist-component{
+
+}
+.artist{
+  background-color: black;
+  color: #00d167;
+  margin-top: -30px;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }

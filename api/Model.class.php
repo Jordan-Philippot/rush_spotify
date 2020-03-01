@@ -16,7 +16,9 @@ class Model extends DatabaseConn
             $sql .= " limit :lim"; // If we only want to get a certain amount of albums
         }
         $statement = $this->db->prepare($sql);
-        $statement->bindParam(":lim", $limit, PDO::PARAM_INT);
+        if ($limit !== null) {
+            $statement->bindParam(":lim", $limit, PDO::PARAM_INT); // If we only want to get a certain amount of albums
+        }
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -31,7 +33,9 @@ class Model extends DatabaseConn
         }
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
-        $statement->bindParam(':lim', $limit, PDO::PARAM_INT);
+        if ($limit !== null) {
+            $statement->bindParam(":lim", $limit, PDO::PARAM_INT); // If we only want to get a certain amount of albums
+        }
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -70,14 +74,31 @@ class Model extends DatabaseConn
     public function getArtists(string $name, $limit = null)
     {
         $sql = "SELECT * from artists
-        where artists.name like concat('%', :name, '%')";
-        if ($limit !== null) {
+        where name like concat('%', :name, '%')";
+        if ($limit != null) {
             $sql .= " limit :lim"; // If we only want to get a certain amount of artists
         }
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
-        // $statement->bindParam(':lim', $limit, PDO::PARAM_INT);
+        if ($limit !== null) {
+            $statement->bindParam(":lim", $limit, PDO::PARAM_INT); // If we only want to get a certain amount of albums
+        }
         $statement->execute();
         return $statement->fetchAll();
+    }
+    public function getAllArtists(int $limit = null)
+    {
+        $sql = "SELECT *
+        FROM artists";
+        if ($limit !== null) {
+            $sql .= " limit :lim"; // If we only want to get a certain amount of albums
+        }
+        $statement = $this->db->prepare($sql);
+        if ($limit !== null) {
+            $statement->bindParam(":lim", $limit, PDO::PARAM_INT); // If we only want to get a certain amount of albums
+        }
+        $statement->execute();
+        $all = $statement->fetchAll();
+        return $all;
     }
 }

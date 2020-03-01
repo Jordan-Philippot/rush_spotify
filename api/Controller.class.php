@@ -31,13 +31,13 @@ class Controller
     public function getArtists(string $name)
     {
         $model = new Model;
-        $artists = $model->getArtists($name);
+        $artists = $model->getArtists($name, 5);
         if (is_array($artists)) {
             // We want to get also his albums
-            foreach ($artists as $key => $artist) {
-                $artistId = $artist["id"]; // we want to get his id because we are going to use it in order to get his albums
-                $artists[$key]["albums"] = $model->getAlbumsByArtist($artistId); // at the key "albums" we put all the artist albums
-            }
+            // foreach ($artists as $key => $artist) {
+            //     $artistId = $artist["id"]; // we want to get his id because we are going to use it in order to get his albums
+            //     $artists[$key]["albums"] = $model->getAlbumsByArtist($artistId); // at the key "albums" we put all the artist albums
+            // }
             $this->response = ['success' => true, 'data' => $artists];
         }
         $this->returnJson($this->response);
@@ -47,7 +47,26 @@ class Controller
         $this->returnJson($this->response);
     }
 
+    public function getFull()
+    {
+        $model = new Model;
+        $artists = $model->getAllArtists();
+        if (is_array($artists)) {
+            // We want to get also his albums
+            foreach ($artists as $key => $artist) {
+                $artistId = $artist["id"]; // we want to get his id because we are going to use it in order to get his albums
+                $artists[$key]["albums"] = $model->getAlbumsByArtist($artistId); // at the key "albums" we put all the artist albums
+                //we also want to take all tracks from each album
+                foreach ($artists[$key]["albums"] as $k => $album) {
+                    $albumId = $album["id"];
+                    $artists[$key]["albums"][$key]["tracks"] = $model->getTracksByAlbum($albumId);
+                }
+            }
+            $this->response = ['success' => true, 'data' => $artists];
+        }
 
+        $this->returnJson($this->response);
+    }
 
     private function returnJson(array $array)
     {
