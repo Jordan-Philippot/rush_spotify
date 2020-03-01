@@ -12,6 +12,13 @@ class Router
             case '/albums':
                 $controller->getAlbums();
                 break;
+            case '/tracks':
+                $controller->getTracks(1);
+                break;
+            case '/artists':
+                $controller->getArtists("a");
+                break;
+
             default:
                 $controller->notFound();
                 break;

@@ -7,12 +7,38 @@ class Controller
     {
         $this->response = ['success' => false, 'data' => "404"];
     }
-    public function getAlbums()
+    /**
+     * The flag will specify if we are getting the albums by genre, by artist, or by itself
+     */
+    public function getAlbums($flag = "all", $limit = 15)
     {
         $model = new Model;
         $albums = $model->getAllAlbums();
         if (is_array($albums)) {
             $this->response = ['success' => true, 'data' => $albums];
+        }
+        $this->returnJson($this->response);
+    }
+    public function getTracks($albumId)
+    {
+        $model = new Model;
+        $tracks = $model->getTracksByAlbum($albumId);
+        if (is_array($tracks)) {
+            $this->response = ['success' => true, 'data' => $tracks];
+        }
+        $this->returnJson($this->response);
+    }
+    public function getArtists(string $name)
+    {
+        $model = new Model;
+        $artists = $model->getArtists($name);
+        if (is_array($artists)) {
+            // We want to get also his albums
+            foreach ($artists as $key => $artist) {
+                $artistId = $artist["id"]; // we want to get his id because we are going to use it in order to get his albums
+                $artists[$key]["albums"] = $model->getAlbumsByArtist($artistId); // at the key "albums" we put all the artist albums
+            }
+            $this->response = ['success' => true, 'data' => $artists];
         }
         $this->returnJson($this->response);
     }
