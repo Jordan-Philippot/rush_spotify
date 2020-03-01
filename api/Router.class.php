@@ -18,7 +18,9 @@ class Router
             case '/artists':
                 $controller->getArtists("a");
                 break;
-
+            case '/full':
+                $controller->getFull(15);
+                break;
             default:
                 $controller->notFound();
                 break;
