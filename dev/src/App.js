@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Search from "./components/Search";
 import Tracks from "./components/Tracks";
+import Genres from "./components/Genres";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/tracks">
             <Tracks />
+          </Route>
+          <Route path="/genres">
+            <Genres />
           </Route>
         </Switch>
         <Footer />
