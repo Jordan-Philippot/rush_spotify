@@ -25,35 +25,35 @@ function Header() {
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/Home">
+              <Link class="nav-link" to="/">
                 Accueil
-              </a>
+              </Link>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/Prenium">
-                Prenium
-              </a>
+              <Link class="nav-link" to="/premium">
+                Premium
+              </Link>
             </li>
 
             <li class="nav-item dropdown">
-              <a
+              <Link
                 class="nav-link dropdown-toggle"
-                href="/Search"
+                to="/search"
                 id="navbardrop"
                 data-toggle="dropdown"
               >
                 Recherche
-              </a>
+              </Link>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="/Artist">
+                <Link class="dropdown-item" href="/Artist">
                   Artiste
-                </a>
-                <a class="dropdown-item" href="/Gender">
+                </Link>
+                <Link class="dropdown-item" href="/Gender">
                   Genre
-                </a>
-                <a class="dropdown-item" href="/Album">
+                </Link>
+                <Link class="dropdown-item" href="/Album">
                   Album
-                </a>
+                </Link>
               </div>
             </li>
           </ul>
