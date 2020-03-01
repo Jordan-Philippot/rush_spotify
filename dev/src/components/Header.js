@@ -36,7 +36,7 @@ function Header() {
                             <div class="dropdown-menu">
                                 <Link class="dropdown-item" to="/artists"> Artiste </Link>
                                 <Link class="dropdown-item" to="/genders"> Genre </Link>
-                                <Link class="dropdown-item" to="/albums"> Album </Link>
+                                <Link class="dropdown-item" to="/"> Album </Link>
                             </div>
                         </li>
                     </ul>

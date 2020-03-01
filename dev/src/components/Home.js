@@ -8,8 +8,6 @@ function Home() {
       <div className="row justify-content-center">
         <span className="album-button">Albums</span>
       </div>
-      <Artist />
-
       <Album />
     </div>
   );

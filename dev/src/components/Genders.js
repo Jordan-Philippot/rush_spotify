@@ -12,7 +12,11 @@ function Genders() {
     }, [])
     return (
         <div className="container-fluid">
+            <div className="row justify-content-center">
+                <span className="album-button">Genre</span>
+            </div>
             <div className="row justify-content-center artist-container">
+
                 {genders === null
                     ? "Chargement..."
                     : genders.data.map(gender => <BannerGenders gender={gender} />)}

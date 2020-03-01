@@ -86,6 +86,15 @@ class Model extends DatabaseConn
         $statement->execute();
         return $statement->fetchAll();
     }
+    public function getArtistid($id)
+    {
+        $sql = "SELECT * from artists
+        where id = ':id'";
+        $statement = $this->db->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        return $statement->fetchAll();
+    }
     public function getAllArtists(int $limit = null)
     {
         $sql = "SELECT *
