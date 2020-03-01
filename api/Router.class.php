@@ -18,7 +18,9 @@ class Router
             case '/artists':
                 $controller->getArtists("a");
                 break;
-
+            case '/genres':
+                $controller->getGenres("");
+                break;
             default:
                 $controller->notFound();
                 break;

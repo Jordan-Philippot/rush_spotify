@@ -8,6 +8,7 @@ class Controller
         $this->response = ['success' => false, 'data' => "404"];
     }
     /**
+     * http://localhost:8080/album
      * The flag will specify if we are getting the albums by genre, by artist, or by itself
      */
     public function getAlbums($flag = "all", $limit = null)
@@ -42,6 +43,16 @@ class Controller
         }
         $this->returnJson($this->response);
     }
+    public function getGenres($genre)
+    {
+        $model = new Model;
+        $genre = $model->getGenres($genre);
+        if (is_array($genre)) {
+            $this->response = ['success' => true, 'data' => $genre];
+        }
+        $this->returnJson($this->response);
+    }
+
     public function notFound()
     {
         $this->returnJson($this->response);
