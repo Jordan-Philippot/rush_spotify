@@ -4,60 +4,66 @@ import Logo from "../assets/spotify.png";
 function Header() {
   // const content = "Salut, je suis le Header"; {content}
   return (
-    <header className="main-header">
-      <nav className="navbar navbar-expand-sm bg-black navbar-dark">
+    <header class="main-header">
+      <nav class="navbar navbar-expand-sm bg-black navbar-dark">
         <img
           src={Logo}
-          className="d-inline-block navbar-brand logo"
+          class="d-inline-block navbar-brand logo"
           alt="Logo Spotify"
         ></img>
         <button
-          className="navbar-toggler"
+          class="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#collapsibleNavbar"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
 
         <div
-          className="collapse navbar-collapse offset-md-2 offset-lg-2 offset-xl-7"
+          class="collapse navbar-collapse offset-md-2 offset-lg-2 offset-xl-7"
           id="collapsibleNavbar"
         >
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <Link class="nav-link" to="/">
                 {" "}
-                Accueil{" "}
+                Home{" "}
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/premium">
+            <li class="nav-item">
+              <Link class="nav-link" to="/genders">
                 {" "}
-                Premium{" "}
+                Genre{" "}
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/artists">
+                {" "}
+                Artiste{" "}
               </Link>
             </li>
 
-            <li className="nav-item dropdown">
+            <li class="nav-item dropdown">
               <Link
-                className="nav-link dropdown-toggle"
-                to="/search"
+                class="nav-link dropdown-toggle"
+                to="/"
                 id="navbardrop"
                 data-toggle="dropdown"
               >
                 {" "}
                 Recherche
               </Link>
-              <div className="dropdown-menu">
-                <Link className="dropdown-item" to="/search/artist">
+              <div class="dropdown-menu">
+                <Link class="dropdown-item" to="/search/artists">
                   {" "}
                   Artiste{" "}
                 </Link>
-                <Link className="dropdown-item" to="/search/gender">
+                <Link class="dropdown-item" to="/search/genders">
                   {" "}
                   Genre{" "}
                 </Link>
-                <Link className="dropdown-item" to="/search/album">
+                <Link class="dropdown-item" to="/search/albums">
                   {" "}
                   Album{" "}
                 </Link>

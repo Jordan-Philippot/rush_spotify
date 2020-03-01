@@ -4,9 +4,10 @@ import Home from "./components/Home";
 import Artist from "./components/Artists";
 import Search from "./components/Search";
 import Tracks from "./components/Tracks";
-import Genres from "./components/Genres";
+import Genders from "./components/Genders";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Albums from "./components/Albums";
 function App() {
   return (
     <Router>
@@ -19,14 +20,17 @@ function App() {
           <Route path="/search/:cat">
             <Search />
           </Route>
-          <Route path="/tracks">
+          <Route path="/tracks/:id">
             <Tracks />
           </Route>
           <Route path="/artists/:name">
             <Artist />
           </Route>
-          <Route path="/genres">
-            <Genres />
+          <Route path="/genders">
+            <Genders />
+          </Route>
+          <Route path="/albumbygender/:id">
+            <Albums />
           </Route>
         </Switch>
         <Footer />

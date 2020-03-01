@@ -103,8 +103,7 @@ class Model extends DatabaseConn
     }
     public function getGenres(string $genre)
     {
-        $sql = "SELECT *
-        FROM genres";
+        $sql = "SELECT * FROM genres where name like concat('%', :genre, '%')";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':genre', $genre);
         $statement->execute();

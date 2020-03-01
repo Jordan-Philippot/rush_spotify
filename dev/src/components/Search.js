@@ -9,11 +9,12 @@ function Search() {
     setinputValue(e.target.value);
   };
   useEffect(() => {
-    if (params.cat === "artist") {
+    if (params.cat === "artists") {
       setchanging(<Artists name={inputValue} />);
+    } else {
+      setchanging("");
     }
-    console.log(changing);
-  }, [inputValue]);
+  }, [inputValue, params.cat]);
   return (
     <div className="container-fluid search">
       <div className="row">
