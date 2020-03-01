@@ -1,19 +1,11 @@
-import React, { useState } from "react";
-import AlbumBanner from "./AlbumBanner";
+import React from "react";
 import Album from "./Albums";
 function Home() {
-  const [content, setContent] = useState(null);
-
-  fetch("http://localhost:8080/albums")
-    .then(response => response.json())
-    .then(json => console.log(json));
-
   return (
     <div className="home">
       <div className="row justify-content-center">
         <span className="album-button">Albums</span>
       </div>
-
       <Album />
     </div>
   );

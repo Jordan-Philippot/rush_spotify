@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AlbumBanner() {
+export default function AlbumBanner(props) {
     return (
         <div class="container">
 
@@ -19,12 +19,10 @@ export default function AlbumBanner() {
 
                 <div class="carousel-inner" role="listbox">
                     <div class="row justify-content-center">
-                        <img class="col-xs-11 col-sm-10 col-md-8 col-lg-7 col-xl-7 img-album" src="assets/image/tupac.jpg" alt="tupac"></img>
-                        <div class="col-xs-11 col-sm-10 col-md-8 col-lg-7 col-xl-7 album">
+                        <img class="col-xs-11 col-sm-10 col-md-6 col-lg-5 col-xl-5 img-album" src={props.album.cover_small} alt="cover"></img>
+                        <div class="col-xs-11 col-sm-10 col-md-6 col-lg-5 col-xl-5 album">
                             <div class="album-text">
-                                <h3>All Eyez On Me</h3>
-                                <p>Titre : I Ain't Mad At Cha</p>
-                                <p>Artiste : Tupac Shakur</p>
+                                <h3>{props.album.name}</h3>
                             </div>
                         </div>
                     </div>
