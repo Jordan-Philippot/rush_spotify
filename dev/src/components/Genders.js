@@ -18,7 +18,9 @@ function Genders(props) {
       <div className="row justify-content-center artist-container">
         {genders === null
           ? "Chargement..."
-          : genders.data.map(gender => <BannerGenders gender={gender} />)}
+          : genders.data.map(gender => (
+              <BannerGenders gender={gender} key={gender.id} />
+            ))}
       </div>
     </div>
   );

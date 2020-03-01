@@ -24,18 +24,11 @@ class Model extends DatabaseConn
     }
     public function getAlbum(string $name, $limit = null)
     {
-        $sql = "SELECT *, albums.name album_name,
+        $sql = "SELECT *
         FROM albums
-        -- left join tracks on albums.id = tracks.album_id
-        where albums.name like '%:name%'";
-        if ($limit !== null) {
-            $sql .= " limit :lim"; // If we only want to get a certain amount of albums
-        }
+        where name like concat('%', :name, '%') limit 15";
         $statement = $this->db->prepare($sql);
         $statement->bindParam(':name', $name);
-        if ($limit !== null) {
-            $statement->bindParam(":lim", $limit, PDO::PARAM_INT); // If we only want to get a certain amount of albums
-        }
         $statement->execute();
         return $statement->fetchAll();
     }

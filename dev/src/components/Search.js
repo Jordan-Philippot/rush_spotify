@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Artists from "./Artists";
 import Genders from "./Genders";
+import Albums from "./Albums";
 function Search() {
   const [changing, setchanging] = useState("");
   const [inputValue, setinputValue] = useState("");
@@ -14,6 +15,8 @@ function Search() {
       setchanging(<Artists name={inputValue} />);
     } else if (params.cat === "genders") {
       setchanging(<Genders name={inputValue} />);
+    } else if (params.cat === "albums") {
+      setchanging(<Albums name={inputValue} />);
     } else {
       setchanging("");
     }

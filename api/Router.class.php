@@ -9,7 +9,7 @@ class Router
             case '/home':
                 echo "Home";
                 break;
-            case '/albums':
+            case (preg_match('/albums.*/', $uri) ? true : false):
                 $controller->getAlbums("none", 15);
                 break;
             case (preg_match('/tracks.*/', $uri) ? true : false):

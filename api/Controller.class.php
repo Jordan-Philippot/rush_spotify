@@ -14,12 +14,19 @@ class Controller
     public function getAlbums($flag = "all", $limit = null)
     {
         $model = new Model;
-        $albums = $model->getAllAlbums($limit);
+        if (!empty($_GET)) {
+            // We are searching by name
+            $albums = $model->getAlbum($_GET["name"]);
+        } else {
+            $albums = $model->getAllAlbums($limit);
+        }
+
         if (is_array($albums)) {
             $this->response = ['success' => true, 'data' => $albums];
         }
         $this->returnJson($this->response);
     }
+
     public function getAlbumsGenre($id = "", $limit = null)
     {
         if (!empty($_GET)) {
