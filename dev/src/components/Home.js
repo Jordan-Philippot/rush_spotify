@@ -1,5 +1,6 @@
 import React from "react";
 import Album from "./Albums";
+import Artist from "./Artists";
 function Home() {
   return (
     <div className="home">
@@ -7,6 +8,7 @@ function Home() {
         <span className="album-button">Albums</span>
       </div>
       <Album />
+      <Artist />
     </div>
   );
 }

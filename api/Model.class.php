@@ -11,7 +11,7 @@ class Model extends DatabaseConn
     public function getAllAlbums($limit = null)
     {
         $sql = "SELECT *, albums.name album_name
-        FROM albums";
+        FROM albums order by popularity desc";
         if ($limit !== null) {
             $sql .= " limit :lim"; // If we only want to get a certain amount of albums
         }

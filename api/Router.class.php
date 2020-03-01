@@ -16,7 +16,7 @@ class Router
                 $controller->getTracks(1);
                 break;
             case '/artists':
-                $controller->getArtists("a");
+                $controller->getArtists("b", 15);
                 break;
 
             default:

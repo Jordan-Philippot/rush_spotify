@@ -9,10 +9,12 @@ function Albums() {
       .then(json => setalbums(json))
   }, [])
   return (
-    <div className="container album-container">
-      {albums === null
-        ? "Chargement..."
-        : albums.data.map(album => <Banner album={album} />)}
+    <div className="container-fluid ">
+      <div className="row justify-content-center album-container">
+        {albums === null
+          ? "Chargement..."
+          : albums.data.map(album => <Banner album={album} />)}
+      </div>
     </div>
   );
 }
