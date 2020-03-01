@@ -15,8 +15,8 @@ class Router
             case '/tracks':
                 $controller->getTracks(1);
                 break;
-            case '/artists':
-                $controller->getArtists("b");
+            case (preg_match('/artist.*/', $uri) ? true : false):
+                $controller->getArtists();
                 break;
             case '/full':
                 $controller->getFull(15);

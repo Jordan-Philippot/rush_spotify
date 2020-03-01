@@ -29,8 +29,11 @@ class Controller
         }
         $this->returnJson($this->response);
     }
-    public function getArtists(string $name)
+    public function getArtists(string $name = "")
     {
+        if (!empty($_GET)) {
+            $name = $_GET["name"];
+        }
         $model = new Model;
         $artists = $model->getArtists($name, 5);
         if (is_array($artists)) {

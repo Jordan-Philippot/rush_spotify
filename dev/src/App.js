@@ -22,7 +22,7 @@ function App() {
           <Route path="/tracks">
             <Tracks />
           </Route>
-          <Route path="/artists">
+          <Route path="/artists/:name">
             <Artist />
           </Route>
           <Route path="/genres">
