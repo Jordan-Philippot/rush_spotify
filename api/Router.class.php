@@ -20,6 +20,8 @@ class Router
                 break;
             case '/full':
                 $controller->getFull(15);
+            case '/genres':
+                $controller->getGenres("");
                 break;
             default:
                 $controller->notFound();
