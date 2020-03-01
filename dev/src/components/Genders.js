@@ -12,7 +12,7 @@ function Genders(props) {
     fetch(link)
       .then(response => response.json())
       .then(json => setgenders(json));
-  }, []);
+  }, [props.name]);
   return (
     <div className="container-fluid">
       <div className="row justify-content-center artist-container">

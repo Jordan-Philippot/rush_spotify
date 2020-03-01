@@ -60,6 +60,9 @@ class Controller
     }
     public function getGenres($genre)
     {
+        if (!empty($_GET)) {
+            $genre = $_GET['name'];
+        }
         $model = new Model;
         $genre = $model->getGenres($genre);
         if (is_array($genre)) {

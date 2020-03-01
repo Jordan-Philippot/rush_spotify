@@ -23,6 +23,9 @@ function App() {
           <Route path="/tracks/:id">
             <Tracks />
           </Route>
+          <Route exact path="/artists">
+            <Artist />
+          </Route>
           <Route path="/artists/:name">
             <Artist />
           </Route>

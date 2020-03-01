@@ -73,6 +73,9 @@ class Model extends DatabaseConn
     }
     public function getArtists(string $name, $limit = null)
     {
+        if (!empty($_GET)) {
+            $name = $_GET["name"];
+        }
         $sql = "SELECT * from artists
         where name like concat('%', :name, '%')";
         if ($limit != null) {
