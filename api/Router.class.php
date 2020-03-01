@@ -10,7 +10,7 @@ class Router
                 echo "Home";
                 break;
             case '/albums':
-                $controller->getAlbums();
+                $controller->getAlbums("none", 15);
                 break;
             case '/tracks':
                 $controller->getTracks(1);

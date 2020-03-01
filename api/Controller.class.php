@@ -10,10 +10,10 @@ class Controller
     /**
      * The flag will specify if we are getting the albums by genre, by artist, or by itself
      */
-    public function getAlbums($flag = "all", $limit = 15)
+    public function getAlbums($flag = "all", $limit = null)
     {
         $model = new Model;
-        $albums = $model->getAllAlbums();
+        $albums = $model->getAllAlbums($limit);
         if (is_array($albums)) {
             $this->response = ['success' => true, 'data' => $albums];
         }
