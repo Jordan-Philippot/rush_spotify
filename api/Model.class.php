@@ -103,10 +103,9 @@ class Model extends DatabaseConn
     }
     public function getGenres(string $genre)
     {
-        $sql = "SELECT *
-        FROM genres";
+        $sql = "SELECT * FROM genres";
         $statement = $this->db->prepare($sql);
-        $statement->bindParam(':genre', $genre);
+        //$statement->bindParam(':genre', $genre);
         $statement->execute();
         return $statement->fetchAll();
     }

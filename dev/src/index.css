@@ -66,7 +66,7 @@ body {
 }
 .album-text{
   margin-top: 30px;
-  padding: 5px 0px;
+  padding: 10px 10px;
   font-weight: bold;
 }
 .img-container{
@@ -80,13 +80,21 @@ width: 200px;
 height: 200px;
 }
 .artist-component{
-
+  margin-right: 30px;
+  margin-bottom: 40px;
 }
-.artist{
+
+.artist,.gender{
   background-color: black;
   color: #00d167;
-  margin-top: -30px;
+  margin-top: -20px;
   text-align: center;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+}
+.artist{
+  border-radius: 25px;
+}
+.gender{
+  padding : 10%;
+  margin: 50px 0px;
+  padding-bottom: 50px;
 }

@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Album from "./Albums";
 import Artist from "./Artists";
+import Gender from "./Genders";
 function Home() {
-  const [albums, setalbums] = useState(null);
-  useEffect(() => {
-    fetch("http://localhost:8080/albums")
-      .then(response => response.json())
-      .then(json => setalbums(json));
-  }, []);
   return (
     <div className="home">
       <div className="row justify-content-center">
         <span className="album-button">Albums</span>
       </div>
       <Artist />
-      <Album albums={albums} />
+
+      <Album />
     </div>
   );
 }

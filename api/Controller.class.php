@@ -20,10 +20,25 @@ class Controller
         }
         $this->returnJson($this->response);
     }
-    public function getTracks($albumId)
+    public function getAlbumsGenre($id = "", $limit = null)
     {
+        if (!empty($_GET)) {
+            $id = $_GET["id"];
+        }
         $model = new Model;
-        $tracks = $model->getTracksByAlbum($albumId);
+        $albums = $model->getAlbumsByGenre($id);
+        if (is_array($albums)) {
+            $this->response = ['success' => true, 'data' => $albums];
+        }
+        $this->returnJson($this->response);
+    }
+    public function getTracks()
+    {
+        if (empty($_GET)) {
+            $this->returnJson($this->response);
+        }
+        $model = new Model;
+        $tracks = $model->getTracksByAlbum($_GET["albumId"]);
         if (is_array($tracks)) {
             $this->response = ['success' => true, 'data' => $tracks];
         }
@@ -78,6 +93,8 @@ class Controller
 
         $this->returnJson($this->response);
     }
+
+
 
     private function returnJson(array $array)
     {
