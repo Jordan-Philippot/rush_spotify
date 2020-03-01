@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Album from "./Albums";
+
 function Home() {
+  const [albums, setalbums] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/albums")
+      .then(response => response.json())
+      .then(json => setalbums(json));
+  }, []);
   return (
     <div className="home">
       <div className="row justify-content-center">
         <span className="album-button">Albums</span>
       </div>
-      <Album />
+      <Album albums={albums} />
     </div>
   );
 }
