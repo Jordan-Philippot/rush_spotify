@@ -23,6 +23,9 @@ class Router
             case (preg_match('/genders.*/', $uri) ? true : false):
                 $controller->getGenres("");
                 break;
+            case (preg_match('/artistprofil.*/', $uri) ? true : false):
+                $controller->getArtistid("");
+                break;
             case (preg_match('/albumbygenre.*/', $uri) ? true : false):
                 $controller->getAlbumsGenre("");
                 break;

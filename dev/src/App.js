@@ -29,6 +29,9 @@ function App() {
           <Route path="/artists/:name">
             <Artist />
           </Route>
+          <Route path="/artistsprofil">
+            <Artist />
+          </Route>
           <Route path="/genders">
             <Genders />
           </Route>

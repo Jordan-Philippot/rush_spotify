@@ -69,6 +69,10 @@ body {
   padding: 10px 10px;
   font-weight: bold;
 }
+.album-text:hover{
+color: white;
+cursor: pointer;
+}
 .img-container{
   margin-top: 1%;
 }
@@ -97,4 +101,29 @@ height: 200px;
   padding : 10%;
   margin: 50px 0px;
   padding-bottom: 50px;
+}
+footer{
+  background-color: black;
+  color: #00d167;
+  margin-top: 100px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+figure{
+  background-color: black;
+  border-radius: 25px;
+  padding: 3px 50px;
+}
+figure:hover{
+color: white;
+cursor: pointer;
+}
+.titletrack{
+  color: #00d167;
+}
+.flex-footer{
+  display: flex;
+}
+.flex-footer p{
+  margin-right: 100px;
 }

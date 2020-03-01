@@ -65,6 +65,15 @@ class Controller
         }
         $this->returnJson($this->response);
     }
+    public function getArtistprofil(string $id)
+    {
+        $model = new Model;
+        $artists = $model->getArtistid($id);
+        if (is_array($artists)) {
+            $this->response = ['success' => true, 'data' => $artists];
+        }
+        $this->returnJson($this->response);
+    }
     public function getGenres($genre)
     {
         if (!empty($_GET)) {

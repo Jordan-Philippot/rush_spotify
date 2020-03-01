@@ -18,6 +18,9 @@ function Albums(props) {
   }, [props.name]);
   return (
     <div className="container-fluid ">
+      <div className="row justify-content-center">
+        <span className="album-button">Albums</span>
+      </div>
       <div className="row justify-content-center album-container">
         {albums === null
           ? "Chargement..."

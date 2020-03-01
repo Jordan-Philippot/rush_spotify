@@ -15,19 +15,26 @@ function Tracks() {
     }, [])
     return (
         <div className="container">
+            <div className="row justify-content-center">
+                <span className="album-button">Tracks</span>
+            </div>
             {tracks === null ? "chargement..." :
                 tracks.data.map(track => <div className="track">
-                    <figure>
-                        <figcaption>{track.name}</figcaption>
-                        <audio
-                            controls
-                            src={track.mp3}>
-                        </audio>
-                    </figure>
-
-                </div>
-                )}
-        </div>
+                    <div className="row justify-content-center">
+                        <div className="col-xs-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                            <figure className="titletrack">
+                                <figcaption>{track.name}</figcaption>
+                                <audio
+                                    controls
+                                    src={track.mp3}>
+                                </audio>
+                            </figure>
+                        </div>
+                    </div>
+                </div >
+                )
+            }
+        </div >
     )
 }
 
