@@ -16,7 +16,7 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/search">
+          <Route path="/search/:cat">
             <Search />
           </Route>
           <Route path="/tracks">

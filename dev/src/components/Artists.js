@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import BannerArtists from "./BannerArtists";
 import { useParams } from "react-router-dom";
-function Artists() {
+function Artists(props) {
   const params = useParams(); //Param to check search
   const [artists, setartists] = useState(null);
   useEffect(() => {
@@ -10,10 +10,13 @@ function Artists() {
       // Wee are searching albums
       link += "?name=" + params.name;
     }
+    if (props.name) {
+      link += "?name=" + props.name;
+    }
     fetch(link)
       .then(response => response.json())
       .then(json => setartists(json));
-  }, []);
+  }, [props.name]);
   return (
     <div className="container-fluid">
       <div className="row justify-content-center artist-container">
