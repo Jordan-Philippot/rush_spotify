@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import AlbumBan from "./albumBan";
 function Albums() {
   const [albums, setalbums] = useState(null);
   fetch("http://localhost:8080/albums")
@@ -7,7 +7,9 @@ function Albums() {
     .then(json => setalbums(json));
   return (
     <div className="container album-container">
-      {albums === null ? "Chargement..." : al}
+      {albums === null
+        ? "Chargement..."
+        : albums.data.map(album => <AlbumBan album={album} />)}
     </div>
   );
 }
