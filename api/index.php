@@ -7,7 +7,7 @@
 
 //This will allow our React application at http://address:port
 // to comunicate with our api that is not on the same port
-header("Access-Control-Allow-Origin: http://127.0.0.1:5500");
+header("Access-Control-Allow-Origin: http://localhost:3000");
 require_once("./autoloader.php");
 
 // We wanna make sure we get the last part of the link so here we go
