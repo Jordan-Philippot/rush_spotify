@@ -1,3 +1,5 @@
+
+### Project led by Zacharie Bizimana
 **IMPORTANT: As the Api wont run on the same folder as the build or the react app**
 **please MAKE SURE you replace the correct adress in `api/index.php` at line 10**
 
@@ -28,3 +30,12 @@ If you have no `node_module` folder, you must run `npm install` inside the dev f
 
 English only please
 Name your variables in `camelCase` and they should be super intuitive
+
+
+![homeSpotify](https://user-images.githubusercontent.com/60606478/84318482-d0706300-ab6e-11ea-8e8e-4b84ebfc39ea.png)
+
+![genreSpotify](https://user-images.githubusercontent.com/60606478/84318523-e0884280-ab6e-11ea-819f-98ab1bb7fa72.png)
+
+![tracksSpotify](https://user-images.githubusercontent.com/60606478/84318528-e1b96f80-ab6e-11ea-8223-2957329a8e4b.png)
+
+![searchSpotify](https://user-images.githubusercontent.com/60606478/84318532-e2520600-ab6e-11ea-95c3-744c5b1e5faa.png)
